@@ -1,89 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Eva's corner</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <title>Eva's Fashion Corner | Where AI Meets Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    h1 {
-      color: pink;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      text-align: center;
+    :root {
+      --black: #0a0a0a;
+      --black-mid: #141414;
+      --pink: #e8a0b0;
+      --pink-light: #f0c0cc;
+      --pink-dim: rgba(232, 160, 176, 0.15);
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --white: #fdf0f4;
+      --grey: #8a7a80;
     }
-    h2 {
-      color: pink;
-      font-family: 'Playfair Display', serif;
-      text-align: center;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      background-color: black;
+      background-color: var(--black);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--white);
+      overflow-x: hidden;
     }
-    p {
-      color: white;
+
+    /* ── HEADER ── */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .discount {
-      color: pink;
+
+    .site-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-style: italic;
+      color: var(--white);
       text-align: center;
-      font-weight: bold;
-      cursor: pointer;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      padding: 20px;
+
+    .site-title span {
+      color: var(--pink-light);
     }
-    .grid img {
-      width: 100%;
-    }
-    .grid figure {
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
     }
-    .grid img:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
     }
-    figcaption {
-      color: pink;
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.3) 0%,
+        rgba(10,10,10,0.1) 40%,
+        rgba(10,10,10,0.7) 80%,
+        rgba(10,10,10,1) 100%
+      );
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
       text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
       font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 72px);
       font-style: italic;
-      padding: 8px 0;
-      font-size: 18px;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-tagline span {
+      color: var(--pink-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2vw, 18px);
+      color: var(--grey);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--pink), var(--gold));
+      margin: 0 auto 40px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--pink), var(--gold));
+      color: var(--black);
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 2px;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* ── INTRO SECTION ── */
+    .intro {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.8;
+      color: var(--grey);
+      font-weight: 300;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    .section-label h2 {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── CHARACTER CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      padding: 0 20px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      text-decoration: none;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(10,10,10,0.95) 100%
+      );
+      transition: opacity 0.3s ease;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 24px;
+    }
+
+    .card-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--grey);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .card-link {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-link {
+      opacity: 1;
+    }
+
+    /* Character accent colours */
+    .card-claude .card-eyebrow { color: #c9a84c; }
+    .card-claude .card-link { color: #c9a84c; }
+
+    .card-chatgpt .card-eyebrow { color: #0085ff; }
+    .card-chatgpt .card-link { color: #0085ff; }
+
+    .card-dola .card-eyebrow { color: #c9847a; }
+    .card-dola .card-link { color: #c9847a; }
+
+    .card-eva .card-eyebrow { color: #e8a0b0; }
+    .card-eva .card-link { color: #e8a0b0; }
+
+    /* ── DISCOUNT BANNER ── */
+    .discount-banner {
+      background: linear-gradient(135deg, #1a0810, #2a1020);
+      border-top: 1px solid var(--pink-dim);
+      border-bottom: 1px solid var(--pink-dim);
+      text-align: center;
+      padding: 50px 20px;
+      margin-bottom: 80px;
+    }
+
+    .discount-banner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 32px);
+      font-style: italic;
+      color: var(--pink-light);
+      margin-bottom: 10px;
+    }
+
+    .discount-banner p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 24px;
+    }
+
+    .discount-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid var(--pink);
+      color: var(--pink);
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      cursor: pointer;
+      background: transparent;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      font-style: italic;
+    }
+
+    .discount-btn:hover {
+      background: var(--pink);
+      color: var(--black);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--pink-dim);
+    }
+
+    .footer p {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .cards {
+        grid-template-columns: 1fr;
+        padding: 0 0 60px;
+        gap: 3px;
+      }
+
+      .card {
+        aspect-ratio: 4/5;
+      }
+
+      .card-link {
+        opacity: 1;
+      }
+
+      .site-header {
+        padding: 20px;
+      }
+
+      .hero-content {
+        bottom: 60px;
+      }
     }
   </style>
 </head>
 <body>
-    <h1>Eva's fashion corner</h1>
-    <h2>Spring, Summer 2026</h2>
-    <div class="grid">
-        <figure>
-            <a href="eva.html">
-                <img src="eva.jpg" alt="Eva">
-            </a>
-            <figcaption>Eva — The Star</figcaption>
-        </figure>
-        <figure>
-            <a href="dola.html">
-                <img src="dola.jpg" alt="Dola">
-            </a>
-            <figcaption>Dola — The Organiser</figcaption>
-        </figure>
-        <figure>
-            <a href="claude.html">
-                <img src="claude.jpg" alt="Claude">
-            </a>
-            <figcaption>Claude — The Thinker</figcaption>
-        </figure>
-        <figure>
-            <a href="chatgpt.html">
-                <img src="chatgpt.jpg" alt="ChatGPT">
-            </a>
-            <figcaption>ChatGPT — The Enthusiast</figcaption>
-        </figure>
+
+  <header class="site-header">
+    <h1 class="site-title">Eva's <span>Fashion</span> Corner</h1>
+  </header>
+
+  <section class="hero">
+    <img src="eva.jpg" alt="Eva" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Spring · Summer 2026</p>
+      <h2 class="hero-tagline">Where <span>AI</span> Meets Style</h2>
+      <p class="hero-sub">Fashion curated by the world's most iconic AI minds</p>
+      <div class="hero-divider"></div>
+      <a href="#collection" class="hero-cta">Explore The Collection</a>
     </div>
-    <p>Welcome to Eva's fashion corner where you can shop for all your clothes in one place. We are an independent company that offers clothing styles that caters for every size and shape at affordable prices.</p>
-    <p class="discount" onclick="alert('Use code EVA50 at checkout for 50% off your first order!')">50% OFF YOUR 1ST ORDER CLICK HERE</p>
+  </section>
+
+  <section class="intro">
+    <h2>Every style has a story.</h2>
+    <p>Eva and her AI advisors each bring a unique perspective to fashion. From Claude's quiet sophistication to ChatGPT's bold statements — discover which AI matches your style.</p>
+  </section>
+
+  <div class="section-label" id="collection">
+    <h2>The AI Style Collective</h2>
+  </div>
+
+  <div class="cards">
+    <a href="eva.html" class="card card-eva">
+      <img src="eva.jpg" alt="Eva">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">The Star</p>
+        <h3 class="card-title">Eva</h3>
+        <p class="card-desc">Independent, floral, quietly unforgettable.</p>
+        <p class="card-link">View Collection →</p>
+      </div>
+    </a>
+
+    <a href="claude.html" class="card card-claude">
+      <img src="claude.jpg" alt="Claude">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">The Thinker</p>
+        <h3 class="card-title">Claude</h3>
+        <p class="card-desc">Smart, considered, dressed with purpose.</p>
+        <p class="card-link">View Collection →</p>
+      </div>
+    </a>
+
+    <a href="chatgpt.html" class="card card-chatgpt">
+      <img src="chatgpt.jpg" alt="ChatGPT">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">The Enthusiast</p>
+        <h3 class="card-title">ChatGPT</h3>
+        <p class="card-desc">Bold, electric, zero apologies.</p>
+        <p class="card-link">View Collection →</p>
+      </div>
+    </a>
+
+    <a href="dola.html" class="card card-dola">
+      <img src="dola.jpg" alt="Dola">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">The Curator</p>
+        <h3 class="card-title">Dola</h3>
+        <p class="card-desc">Trendy but classy. Always considered.</p>
+        <p class="card-link">View Collection →</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="discount-banner">
+    <h3>Welcome to the Corner</h3>
+    <p>First time here? We have something for you.</p>
+    <button class="discount-btn" onclick="alert('Use code EVA50 at checkout for 50% off your first order!')">Claim Your 50% Off →</button>
+  </div>
+
+  <footer class="footer">
+    <p>Eva's Fashion Corner · Spring Summer 2026 · Where AI Meets Style</p>
+  </footer>
+
 </body>
 </html>
